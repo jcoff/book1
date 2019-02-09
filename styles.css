@@ -39,6 +39,8 @@ a {
 	background: white;
 	box-sizing: border-box;
 }
+
+
 @media screen and (max-width: 560px) {
 	.audio-player {
 		width: 90vw;

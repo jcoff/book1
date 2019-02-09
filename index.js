@@ -13,7 +13,6 @@
         var output = document.getElementById("demo");
 
         var barSize = document.getElementById("defaultBar").offsetWidth
-        console.log(barSize + " - bar width");
 
         // bar.addEventListener('click', clickedBar, false);
 
@@ -43,15 +42,6 @@
 
             }
         }
-
-        // function for timeline
-
-        // audio.addEventListener("timeupdate", function() {
-        //     var currentTime = audio.currentTime,
-        //         duration = audio.duration,
-        //         currentTimeMs = audio.currentTime * 1000    ;
-        //     $('.progressbar_range').stop(true, true).animate({'width': (currentTime + .25) / duration * 100 + '%'}, 250, 'linear');
-        // });
 
         // count function for timeleft
 
@@ -93,28 +83,12 @@
 
                 progressBar.style.width = '0px';
                 window.clearInterval(updateTime);
-                // currentTime = 0.00;
-                // playButton.style.backgroundImage = 'url(./buttons/play-white-s.png)';
-                //
-                // progressBar.style.width = '0px';
-                // window.clearInterval(updateTime);
             }
 
         }
 
-        // $('[data-link]').on("click", function() {
-        //     let link = $(this).attr("data-link");
-        //     if (window.location != window.parent.location)
-        //     {
-        //         window.parent.location = link;
-        //     }
-        // });
-
         function clickedBar(e) {
             if(!audio.ended) {
-                console.log(barSize);
-                console.log("xxxx" + bar.offsetLeft);
-                console.log(playerDom.offsetLeft + " - someoffset from wrapper");
                 var mouseX = e.pageX - bar.offsetLeft - playerDom.offsetLeft;
                 var newTime = mouseX*audio.duration/barSize;
 
@@ -122,9 +96,6 @@
                 audio.currentTime = newTime;
                 console.log("new time - " + audio.currentTime);
                 progressBar.style.width = mouseX + 'px';
-                console.log(mouseX + " - mx");
-                console.log(e.pageX+ " - epagex");
-                console.log(newTime);
             }
         }
 
