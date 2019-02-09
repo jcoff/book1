@@ -100,13 +100,6 @@ a {
 	justify-content: space-around;
 }
 
-
-.slidecontainer {
-    width: 200px;
-	margin-top: 22px;
-}
-
-
 @media screen and (max-width: 420px) {
 	.controls {
 		flex-direction: column;
@@ -167,8 +160,10 @@ a {
 }
 
 .slider {
+	margin-top: 19px;
+	float: right;
 	-webkit-appearance: none;
-	width: 80%;
+	width: 75%;
 	height: 5px;
 	background: #d3d3d3;
 	outline: none;
@@ -197,4 +192,20 @@ a {
 	border-radius: 50%;
 	background: #4CAF50;
 	cursor: pointer;
+}
+
+
+.slidecontainer {
+    margin-right: 8px;
+	display: inline-block;
+	width: 200px;
+	margin-top: 8px;
+}
+#playerMute {
+	width: 30px;
+	float: left;
+}
+#muteButton{
+	font-size: 1.5em;
+	margin-top: 10px;
 }

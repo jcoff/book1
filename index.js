@@ -9,6 +9,7 @@
         var barSize = document.getElementById("defaultBar").offsetWidth
         var audio = document.getElementById("audio");
         var sliderDot = document.getElementById("progressDot")
+        var muteButton = document.getElementById("muteButton")
 
         audio.volume = 0.6;
         slider.value = audio.volume * 10;
@@ -17,6 +18,7 @@
             playOrPause();
         });
         bar.addEventListener('click', clickedBar, false);
+        muteButton.addEventListener('click',muteOrUnmute, false );
 
         function playOrPause() {
             if (audio.paused == false) {
@@ -87,8 +89,24 @@
             }
         }
 
+        function muteOrUnmute() {
+            if(audio.muted == true) {
+                audio.muted = false;
+                muteButton.className = 'fa fa-volume-up';
+                slider.value = audio.volume * 10;
+            } else {
+                audio.muted = true;
+                muteButton.className = 'fa fa-volume-off';
+                slider.value = 0;
+            }
+        }
+
 
         slider.oninput = function() {
+            if(audio.muted == true) {
+                audio.muted = false;
+                muteButton.className = 'fa fa-volume-up';
+            }
             audio.volume = this.value / 10 - 0.1;
             console.log(audio.volume);
         }
