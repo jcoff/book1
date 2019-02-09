@@ -1,0 +1,156 @@
+audio {
+	/*position: absolute;*/
+}
+
+h2 {
+	font-size: 26px;
+	margin: 14px 0;
+	font-weight: 700;
+}
+
+h3 {
+	font-size: 16px;
+	font-weight: 400;
+}
+
+p {
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 400;
+	margin-bottom: 10px;
+	color: grey;
+}
+
+a {
+	text-decoration: none;
+	color: #9d57e4;
+}
+
+.audio-player {
+	border: 2px solid #000;
+	margin-top: 200px;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	transition: all 0.2s;
+	width: 90vw;
+	max-width: 850px;
+	background: white;
+	box-sizing: border-box;
+}
+@media screen and (max-width: 560px) {
+	.audio-player {
+		width: 90vw;
+		background: white;
+	}
+}
+
+.info {
+	flex: 1;
+	padding: 16px 30px;
+}
+
+.cover-art {
+	position: absolute;
+	bottom: 160px;
+	right: -25px;
+	width: 200px;
+	height: 258px;
+	background-size: cover;
+	transition: all 0.2s;
+}
+@media screen and (max-width: 560px) {
+	.cover-art {
+		display: none;
+	}
+}
+@media screen and (max-width: 520px) {
+	.cover-art {
+		display: none;
+	}
+}
+.cover-art a {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.controls {
+	display: flex;
+	width: 100%;
+	height: 100px;
+	background: white;
+	margin-top: -1px;
+	padding: 20px;
+	box-sizing: border-box;
+	transition: all 0.2s;
+}
+.controls_plays {
+	flex: 2;
+	display: flex;
+	justify-content: space-around;
+}
+.controls_player {
+	flex: 1;
+	fill: #7FE5A3;
+	display: flex;
+	justify-content: space-around;
+}
+
+
+.slidecontainer {
+	border: 1px solid blue;
+    width: 200px;
+}
+
+
+@media screen and (max-width: 420px) {
+	.controls {
+		flex-direction: column;
+		height: 200px;
+	}
+}
+
+#plays_btn, #prev_btn, #next_btn {
+	cursor: pointer;
+	width: 26px;
+	max-width: 18px;
+	transition: all 0.2s;
+}
+#plays_btn:hover, #prev_btn:hover, #next_btn:hover {
+	fill: #565349;
+}
+
+#pause_btn {
+	display: none;
+}
+
+#volume_btn, #shuffle_btn, #playlist_btn {
+	cursor: pointer;
+	width: 23px;
+	max-width: 18px;
+	transition: all 0.2s;
+}
+#volume_btn:hover, #shuffle_btn:hover, #playlist_btn:hover {
+	fill: #22a952;
+}
+
+.progressbar_slide {
+	width: 100%;
+	background: #7fe5a3;
+	height: 6px;
+}
+
+.progressbar_range {
+	width: 0;
+	background: black;
+	height: 6px;
+}
+
+.audio-player-wrapper {
+	display: flex;
+	justify-content: center;
+	background: #83C4FE;
+	padding: 20px 0;
+}
