@@ -1,26 +1,17 @@
 (function() {
-	console.log('hola');
-
     jQuery(function($) {
 
         var playerDom = document.getElementById('playerWrapper')
 
         var bar = document.getElementById('defaultBar');
         var progressBar = document.getElementById('progressBar');
-
-
         var slider = document.getElementById("myRange");
-        var output = document.getElementById("demo");
-
         var barSize = document.getElementById("defaultBar").offsetWidth
+        var audio = document.getElementById("audio");
+        var sliderDot = document.getElementById("progressDot")
 
-        // bar.addEventListener('click', clickedBar, false);
-
-        //
-        var audio = document.getElementById('audio');
         audio.volume = 0.6;
         slider.value = audio.volume * 10;
-        console.log(audio.volume);
 
         $("#plays_btn").click(function() {
             playOrPause();
@@ -66,16 +57,13 @@
         }
 
         function playerUpdate() {
-            console.log('playerUpdate func.');
             if(!audio.ended){
                 timeUpdate();
 
                 var size = parseInt(audio.currentTime*barSize/audio.duration);
 
-                console.log('some check');
-                console.log(size);
-                console.log(audio.currentTime);
                 progressBar.style.width = size + 'px';
+                sliderDot.style.marginLeft = progressBar.offsetWidth - 7 + "px";
             }
             else {
                 $("#play_btn").show();
@@ -92,17 +80,15 @@
                 var mouseX = e.pageX - bar.offsetLeft - playerDom.offsetLeft;
                 var newTime = mouseX*audio.duration/barSize;
 
-                console.log("old time - " + audio.currentTime);
                 audio.currentTime = newTime;
-                console.log("new time - " + audio.currentTime);
                 progressBar.style.width = mouseX + 'px';
+                console.log(progressBar.offsetWidth + " - it's offset");
+                sliderDot.style.marginLeft = progressBar.offsetWidth - 7 +"px";
             }
         }
 
-        output.innerHTML = slider.value;
 
         slider.oninput = function() {
-            output.innerHTML = this.value;
             audio.volume = this.value / 10 - 0.1;
             console.log(audio.volume);
         }
